@@ -16,7 +16,7 @@ function arenaSweep() {
         arena.unshift(row);
         ++y;
 
-        player.score += rowCount * 10;
+        player.score += rowCount * 1;
         rowCount *= 2;
     }
 }
@@ -165,8 +165,7 @@ function playerReset() {
     const pieces = 'TJLOSZI';
     player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
     player.pos.y = 0;
-    player.pos.x = (arena[0].length / 2 | 0) -
-                   (player.matrix[0].length / 2 | 0);
+    player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {
         arena.forEach(row => row.fill(0));
         player.score = 0;
@@ -212,13 +211,13 @@ function updateScore() {
 }
 
 document.addEventListener('keydown', event => {
-    if (event.keyCode === 65) {
+    if (event.keyCode === 65 || event.keyCode == 37) {
         playerMove(-1);
-    } else if (event.keyCode === 68) {
+    } else if (event.keyCode === 68 || event.keyCode == 39) {
         playerMove(1);
-    } else if (event.keyCode === 83) {
+    } else if (event.keyCode === 83 || event.keyCode == 40) {
         playerDrop();
-    } else if (event.keyCode === 87) {
+    } else if (event.keyCode === 87 || event.keyCode == 38) {
         playerRotate(1);
     }
 });
