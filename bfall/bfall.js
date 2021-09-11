@@ -224,13 +224,13 @@ document.addEventListener('keydown', event => {
 
 const colors = [
     null,
-    '#FF0D72',
-    '#0DC2FF',
-    '#0DFF72',
-    '#F538FF',
-    '#FF8E0D',
-    '#FFE138',
-    '#3877FF',
+    '#00F0F0', //I
+    '#F0A000', //L
+    '#0000F0', //J
+    '#F0F000', //O
+    '#F00000', //Z
+    '#00F000', //S
+    '#FF00FF', //T
 ];
 
 const arena = createMatrix(12, 16);
