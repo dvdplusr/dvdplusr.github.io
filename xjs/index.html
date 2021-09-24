@@ -15,19 +15,13 @@
 </head>
 <body>
     <table>
-        <tr>
-            <td><textarea class="body" id="input" placeholder="put your code here"></textarea></td>
-        </tr>
-        <tr>
-            <td class="lower"><textarea id="output" readonly="true" placeholder="code output" rows="1"></textarea></td>
-        </tr>
-        <tr>
-            <td class="lower">
-                <button onclick="javascript:interpretCode()">run code</button>
-                <button onclick="javascript:startNew()">start new</button>
-                <button id="modeSwitch" onclick="javascript:switchModes()">cache clearing: off</button>
-            </td>
-        </tr>
+        <tr><td><textarea class="body" id="input" placeholder="put your code here"></textarea></td></tr>
+        <tr><td class="lower"><textarea id="output" readonly="true" placeholder="code output" rows="1"></textarea></td></tr>
+        <tr><td class="lower">
+            <button onclick="javascript:interpretCode()">run code</button>
+            <button onclick="javascript:startNew()">start new</button>
+            <button id="modeSwitch" onclick="javascript:switchModes()">cache clearing: off</button>
+        </td></tr>
     </table>
 </body>
 <script>
