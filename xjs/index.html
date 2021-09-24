@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="robots" content="noindex"/>
-    <title>XJS</title>
+    <title>JSX</title>
     <link rel="icon" href="xlang.ico">
     <style>
-        /* default (light mode) */
         body { font-family: monospace; background-color: #FFFFFF; }
         table { border-collapse: collapse; width: 100%; background-color: #FFFFFF; position: absolute; height: 100%; top: 0px; left: 0px; }
         th { background-color: #E6E6E6; }
@@ -26,38 +24,58 @@
             <td class="lower"><textarea id="output" placeholder="code output" rows="1"></textarea></td>
         </tr>
         <tr>
-            <td class="lower"><button onclick="javascript:interpretCode()">run code</button> <button onclick="javascript:startNew()">start new</button></td>
+            <td class="lower">
+                <button onclick="javascript:interpretCode()">run code</button>
+                <button onclick="javascript:startNew()">start new</button>
+                <button id="modeSwitch" onclick="javascript:switchModes()">cache clearing: off</button>
+            </td>
         </tr>
     </table>
 </body>
 <script>
-const c = "><+-.)(";
-var t = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var ts = 0;
+    const c = "><+-.)(!";
+    const b = document.getElementById("modeSwitch");
 
-function startNew()
-{
-    document.getElementById("input").value = "";
-    document.getElementById("output").value = "";
-}
+    var m = false;
+    var t = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var s = 0;
 
-function interpretCode()
-{
-    document.getElementById("output").value = "";
-    var a = document.getElementById("input").value;
-
-    for(var x = 0; x < a.length; x++)
+    function switchModes()
     {
-        if(a[x] == c[0]) { ts = ts + 1; }
-        if(a[x] == c[1]) { ts = ts - 1; }
-        if(a[x] == c[2]) { t[ts] = t[ts] + 1; }
-        if(a[x] == c[3]) { t[ts] = t[ts] - 1; }
-        if(a[x] == c[4]) { document.getElementById("output").value = document.getElementById("output").value + String.fromCharCode(t[ts]); }
-        if(a[x] == c[5]) { t[ts] = t[ts] + 10; }
-        if(a[x] == c[6]) { t[ts] = t[ts] - 10; }
+        m = !m;
+
+        if(m) { b.innerHTML = "cache clearing: on"; b.style = "background-color:#00f; border-bottom: 2px solid #0000b0;"; }
+        else { b.innerHTML = "cache clearing: off"; b.style = "background-color:#f00; border-bottom: 2px solid #b00000;"; }
     }
 
-    console.log("OUTPUT: " + document.getElementById("output").value);
-}
+    function startNew()
+    {
+        document.getElementById("input").value = "";
+        document.getElementById("output").value = "";
+    }
+
+    function interpretCode()
+    {
+        if(m) { for(var i = 0; i < t.length; i++) { t[i] = 0; } s = 0; }
+
+        document.getElementById("output").value = "";
+        var a = document.getElementById("input").value;
+
+        for(var x = 0; x < a.length; x++)
+        {
+            if(a[x] == c[0]) { s = s + 1; }
+            if(a[x] == c[1]) { s = s - 1; }
+            if(a[x] == c[2]) { t[s] = t[s] + 1; }
+            if(a[x] == c[3]) { t[s] = t[s] - 1; }
+            if(a[x] == c[4]) { document.getElementById("output").value = document.getElementById("output").value + String.fromCharCode(t[s]); }
+            if(a[x] == c[5]) { t[s] = t[s] + 10; }
+            if(a[x] == c[6]) { t[s] = t[s] - 10; }
+            if(a[x] == c[7]) { t[s] = 0; }
+        }
+
+        console.log("OUTPUT: " + document.getElementById("output").value);
+    }
+
+    switchModes();
 </script>
 </html>
