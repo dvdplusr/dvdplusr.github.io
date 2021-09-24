@@ -3,6 +3,12 @@
 <head>
     <title>XJS</title>
     <link rel="icon" href="xlang.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:site_name" content="XJS">
+    <meta property="og:title" content="XJS">
+    <meta property="og:description" content="Experiment with XLANG in your browser!">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <style>
         body { font-family: monospace; background-color: #FFFFFF; }
         table { border-collapse: collapse; width: 100%; background-color: #FFFFFF; position: absolute; height: 100%; top: 0px; left: 0px; }
@@ -21,7 +27,7 @@
             <td><textarea class="body" id="input" placeholder="put your code here"></textarea></td>
         </tr>
         <tr>
-            <td class="lower"><textarea id="output" placeholder="code output" rows="1"></textarea></td>
+            <td class="lower"><textarea id="output" readonly="true" placeholder="code output" rows="1"></textarea></td>
         </tr>
         <tr>
             <td class="lower">
