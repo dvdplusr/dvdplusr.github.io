@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Notate</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+			.topnav {
+				overflow: hidden;
+				background-color: #000;
+				padding: 14px;
+				position: fixed;
+				top: 0;
+				width: 100%;
+			}
+
+			body {
+				margin: 0;
+				font-family: 'Roboto', sans-serif;
+				font-size: large;
+				overflow-wrap: break-word;
+			}
+
+			input.input {
+				margin-left: 8px;
+				background-color: #000;
+				border: none;
+				color: #FFF;
+				outline: none;
+				font-size: large;
+				width: 80%;
+			}
+
+			button.input-button {
+				border: none;
+				background-color: #000;
+				color: #FFF;
+				border-radius: 4px;
+				font-size: large;
+			}
+
+			button.input-button:hover {
+				background-color: #0e0e0e;
+			}
+
+			button.item-remove {
+				background-color: #fff;
+				border: none;
+			}
+
+			span.item-text {
+				margin-left: 6px;
+			}
+
+			div.item {
+				border-radius: 4px;
+				padding: 8px;
+				box-shadow: 0 4px 8px -2px #808080;
+			}
+
+			ul {
+				list-style-type: circle;
+			}
+
+			li:hover {
+				list-style-type: disc;
+			}
+
+			li {
+				padding-left: 4px;
+			}
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	</head>
+	<body>
+		<div class="topnav">
+			<button class="input-button" onclick="addItem()">+</button><input class="input" id="input" placeholder="Add item..."></input>
+		</div>
+
+		<br><br>
+
+		<ul class="todos" id="todos"></ul>
+
+		<script>
+			var itemCount = 0;
+
+			function addItem()
+			{
+				document.getElementById("todos").innerHTML += '<li id="' + itemCount.toString() + '" onclick="removeItem(' + itemCount.toString() + ')">' + document.getElementById("input").value + "</li>";
+				document.getElementById("input").value = "";
+				itemCount++;
+			}
+
+			function removeItem(coord)
+			{
+				document.getElementById(coord).remove();
+			}
+		</script>
+	</body>
+</html>
