@@ -77,19 +77,32 @@
 		<ul class="todos" id="todos"></ul>
 
 		<script>
+			// clean this up please bro please :laughingcrying:
+			const todoList = document.getElementById('todos');
+	        const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
+	        const todoData = [];
 			var itemCount = 0;
 
 			function addItem()
 			{
 				document.getElementById("todos").innerHTML += '<li id="' + itemCount.toString() + '" onclick="removeItem(' + itemCount.toString() + ')">' + document.getElementById("input").value + "</li>";
+				todoData.push(document.getElementById("input").value);
+				localStorage.setItem('todos', JSON.stringify(todoData));
 				document.getElementById("input").value = "";
 				itemCount++;
 			}
 
 			function removeItem(coord)
 			{
+				todoData.splice(coord, 1);
 				document.getElementById(coord).remove();
+				localStorage.setItem('todos', JSON.stringify(todoData));
 			}
+
+			existingTodos.forEach(todo => {
+	            document.getElementById("input").value = todo;
+				addItem();
+	        });
 		</script>
 	</body>
 </html>
