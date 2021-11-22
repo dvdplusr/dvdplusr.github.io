@@ -75,10 +75,10 @@
 		<ul class="todos" id="todos"></ul>
 
 		<script>
-			// clean this up please bro please :laughingcrying:
+			// CLEAN UP THIS CODE
 			const todoList = document.getElementById('todos');
-	        const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
-	        const todoData = [];
+			const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
+			const todoData = [];
 			var itemCount = 0;
 
 			function addItem()
@@ -98,9 +98,9 @@
 			}
 
 			existingTodos.forEach(todo => {
-	            document.getElementById("input").value = todo;
+				document.getElementById("input").value = todo;
 				addItem();
-	        });
+	        	});
 		</script>
 	</body>
 </html>
