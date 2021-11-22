@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<title>Notate</title>
+		<link rel="icon" href="notate.ico">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="apple-touch-icon" href="ios.png">
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
@@ -12,7 +12,6 @@
 				overflow: hidden;
 				background-color: #000;
 				line-height: 3em;
-				padding-left: 10px;
 				position: fixed;
 				top: 0;
 				width: 100%;
@@ -24,11 +23,9 @@
 				font-family: 'Roboto', sans-serif;
 				font-size: large;
 				overflow-wrap: break-word;
-				padding-top: 3em;
 			}
 
 			input.input {
-				margin-left: 8px;
 				background-color: #000;
 				border: none;
 				color: #FFF;
@@ -43,10 +40,7 @@
 				color: #FFF;
 				border-radius: 4px;
 				font-size: large;
-			}
-
-			button.input-button:hover {
-				background-color: #0e0e0e;
+				width: 3em;	
 			}
 
 			button.item-remove {
@@ -55,7 +49,8 @@
 			}
 
 			ul {
-				padding-left: 14px;
+				padding-top: 3em;
+				padding-left: 3em;
 				list-style-type: none;
 			}
 
